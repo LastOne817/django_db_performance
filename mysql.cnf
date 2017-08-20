@@ -1,0 +1,5 @@
+[client]
+database = test_performance
+host = localhost
+user = root
+default-character-set = utf8
