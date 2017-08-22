@@ -1,10 +1,8 @@
-from django.http import HttpResponse
+from django.http import JsonResponse
 from django.db.models import Count, Max
 from .models import Sample
 
 
 def index(request):
-    obj = Sample(content='asdf')
-    obj.save()
-    obj.delete()
-    return HttpResponse()
+    l = Sample.objects.filter(content__startswith='A')
+    return JsonResponse(list(l.values('content')), safe=False)
